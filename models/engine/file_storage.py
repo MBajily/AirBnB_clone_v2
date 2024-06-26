@@ -11,7 +11,7 @@ class FileStorage:
         __objects: objects will be stored
     """
     __objects = {}
-    __file_path = "file.json"    
+    __file_path = "file.json"
 
 
     def all(self, cls=None):
