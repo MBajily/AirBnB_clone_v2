@@ -5,7 +5,6 @@ from sqlalchemy import Column, String
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship
 from models.place import Place
-from models.state import State
 
 
 class City(BaseModel, Base):
@@ -13,7 +12,6 @@ class City(BaseModel, Base):
     Attributes:
         state_id (str): state id.
         name (str): name of city.
-        places: places
     """
     __tablename__ = "cities"
 
