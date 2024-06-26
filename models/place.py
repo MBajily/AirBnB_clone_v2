@@ -44,7 +44,7 @@ class Place(BaseModel, Base):
     latitude = Column(Float)
     longitude = Column(Float)
     number_bathrooms = Column(Integer, nullable=False, default=0)
-    number_rooms = Column(Integer, nullable=False, default=0)    
+    number_rooms = Column(Integer, nullable=False, default=0)
     amenity_ids = []
 
     if getenv("HBNB_TYPE_STORAGE") == "db":
