@@ -7,6 +7,7 @@ from sqlalchemy.orm import relationship
 from models.place import Place
 from models.state import State
 
+
 class City(BaseModel, Base):
     """Represent a city.
     Attributes:

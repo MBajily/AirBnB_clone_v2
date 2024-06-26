@@ -8,6 +8,7 @@ from models.amenity import Amenity
 from models.city import City
 from models.state import State
 
+
 class Review(BaseModel, Base):
     """Represent a review.
     Attributes:
