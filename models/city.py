@@ -9,7 +9,6 @@ from models.place import Place
 
 class City(BaseModel, Base):
     """Represent a city.
-
     Attributes:
         state_id (str): state id.
         name (str): name of city.

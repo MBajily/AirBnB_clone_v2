@@ -7,7 +7,6 @@ from sqlalchemy.orm import relationship
 
 class User(BaseModel, Base):
     """Represent a User.
-
     Attributes:
         email (str): The email
         password (str): The password
