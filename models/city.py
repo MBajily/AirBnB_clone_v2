@@ -13,6 +13,7 @@ class City(BaseModel, Base):
     Attributes:
         state_id (str): state id.
         name (str): name of city.
+        places: places
     """
     __tablename__ = "cities"
 
