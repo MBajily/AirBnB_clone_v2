@@ -3,13 +3,13 @@
 from os import getenv
 from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy import (create_engine)
-from models.base_model import Base
-from models.user import User
-from models.place import Place
-from models.review import Review
-from models.amenity import Amenity
-from models.state import State
-from models.city import City
+from ..base_model import Base
+from ..user import User
+from ..place import Place
+from ..review import Review
+from ..amenity import Amenity
+from ..state import State
+from ..city import City
 
 
 
