@@ -2,7 +2,10 @@
 """review class"""
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, ForeignKey
-
+from models.place import Place
+from models.amenity import Amenity
+from models.city import City
+from models.state import State
 
 class Review(BaseModel, Base):
     """Represent a review.

@@ -5,7 +5,10 @@ from sqlalchemy import Column, Table, String, Integer, Float, ForeignKey
 from sqlalchemy.orm import relationship
 from os import getenv
 import models
-
+from models.review import Review
+from models.amenity import Amenity
+from models.city import City
+from models.state import State
 
 place_amenity = Table("place_amenity", Base.metadata,
                       Column("place_id", String(60),
