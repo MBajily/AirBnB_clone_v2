@@ -3,8 +3,9 @@
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
+from sqlalchemy.ext.declarative import declarative_base
 from models.review import Review
-from models.amenity import Amenity
+from models.place import Place
 from models.city import City
 from models.state import State
 

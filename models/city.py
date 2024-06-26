@@ -4,8 +4,6 @@ from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship
-from models.review import Review
-from models.amenity import Amenity
 from models.place import Place
 from models.state import State
 

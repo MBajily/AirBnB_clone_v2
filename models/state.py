@@ -3,12 +3,11 @@
 from models.base_model import BaseModel, Base
 from sqlalchemy.orm import relationship
 from sqlalchemy import Column, String
+from sqlalchemy.ext.declarative import declarative_base
 import models
 import shlex
-from models.review import Review
-from models.amenity import Amenity
 from models.city import City
-from models.place import Place
+
 
 class State(BaseModel, Base):
     """Represent a state.
