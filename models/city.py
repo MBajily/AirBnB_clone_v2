@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 """city class"""
-from .base_model import BaseModel, Base
+from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship
-from .place import Place
+from models.place import Place
 
 
 class City(BaseModel, Base):
