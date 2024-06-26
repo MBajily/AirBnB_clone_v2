@@ -19,7 +19,7 @@ place_amenity = Table("place_amenity", Base.metadata,
 
 
 class Place(BaseModel, Base):
-    """Represent a place.
+    """Represent a Place.
     Attributes:
         city_id (str): City id.
         user_id (str): User id.
