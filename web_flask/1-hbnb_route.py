@@ -11,6 +11,7 @@ from flask import Flask
 
 app = Flask(__name__)
 
+
 # Route for the homepage
 @app.route("/", methods=['GET'], strict_slashes=False)
 def hello_hbnb():
@@ -19,6 +20,7 @@ def hello_hbnb():
     """
     return "Hello HBNB!"
 
+
 # Route for /hbnb
 @app.route("/hbnb", methods=['GET'], strict_slashes=False)
 def hbnb():
@@ -26,6 +28,7 @@ def hbnb():
     Displays 'HBNB' on the /hbnb route.
     """
     return "HBNB"
+
 
 if __name__ == "__main__":
     try:

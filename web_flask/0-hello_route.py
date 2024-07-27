@@ -8,7 +8,9 @@ Routes:
 """
 from flask import Flask
 
+
 app = Flask(__name__)
+
 
 # Route for the homepage
 @app.route("/", strict_slashes=False)
@@ -17,6 +19,7 @@ def hello_hbnb():
     Displays 'Hello HBNB!' on the homepage.
     """
     return "Hello HBNB!"
+
 
 if __name__ == "__main__":
     try:
