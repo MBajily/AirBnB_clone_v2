@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HBNB</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #007bff;
+            text-align: center;
+        }
+        h3 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    {% if state is mapping %}
+        <h1>States</h1>
+        <ul>
+            {% for s in state.values()|sort(attribute="name") %}
+                <li>{{ s.id }}: <strong>{{ s.name }}</strong></li>
+            {% endfor %}
+        </ul>
+    {% elif state is defined %}
+        <h1>State: {{ state.name }}</h1>
+        <h3>Cities:</h3>
+        <ul>
+            {% for city in state.cities|sort(attribute="name") %}
+                <li>{{ city.id }}: <strong>{{ city.name }}</strong></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h1>Not found!</h1>
+    {% endif %}
+</div>
+</body>
+</html>

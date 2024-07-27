@@ -1,0 +1,36 @@
+#!/usr/bin/python3
+"""
+Starts a Flask web application.
+
+The application listens on 0.0.0.0, port 5000.
+Routes:
+    /hbnb: HBnB home page.
+"""
+from models import storage
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route("/hbnb", methods=['GET'], strict_slashes=False)
+def hbnb():
+    """
+    Displays the main HBnB home page.
+    """
+    states = storage.all("State")
+    amenities = storage.all("Amenity")
+    places = storage.all("Place")
+    return render_template("100-hbnb.html", states=states, amenities=amenities, places=places)
+
+@app.teardown_appcontext
+def teardown(exception):
+    """
+    Remove the current SQLAlchemy session.
+    """
+    storage.close()
+
+if __name__ == "__main__":
+    try:
+        # Run the Flask app on 0.0.0.0:5000
+        app.run(host="0.0.0.0", port=5000)
+    except Exception as e:
+        print(f"An error occurred: {e}")
