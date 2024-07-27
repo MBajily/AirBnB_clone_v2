@@ -11,6 +11,7 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+
 @app.route("/cities_by_states", methods=['GET'], strict_slashes=False)
 def cities_by_states():
     """
@@ -19,12 +20,14 @@ def cities_by_states():
     States and cities are sorted by name.
     """
     states = storage.all("State")
-    cities_by_state = {}
+    cities_st = {}
     for state in states.values():
         cities = [city for city in state.cities]
-        cities_by_state[state] = sorted(cities, key=lambda x: x.name)
-    
-    return render_template("8-cities_by_states.html", cities_by_state=cities_by_state)
+        cities_st[state] = sorted(cities, key=lambda x: x.name)
+
+    return\
+        render_template("8-cities_by_states.html", cities_by_state=cities_st)
+
 
 @app.teardown_appcontext
 def teardown(exception):
@@ -32,6 +35,7 @@ def teardown(exception):
     Remove the current SQLAlchemy session.
     """
     storage.close()
+
 
 if __name__ == "__main__":
     try:

@@ -20,6 +20,7 @@ app = Flask(__name__)
 app.jinja_env.trim_blocks = True
 app.jinja_env.lstrip_blocks = True
 
+
 # Route for the homepage
 @app.route("/", methods=['GET'], strict_slashes=False)
 def hello_hbnb():
@@ -28,6 +29,7 @@ def hello_hbnb():
     """
     return "Hello HBNB!"
 
+
 # Route for /hbnb
 @app.route("/hbnb", methods=['GET'], strict_slashes=False)
 def hbnb():
@@ -35,6 +37,7 @@ def hbnb():
     Displays 'HBNB' on the /hbnb route.
     """
     return "HBNB"
+
 
 # Route for /c/<text>
 @app.route("/c/<path:text>", methods=['GET'], strict_slashes=False)
@@ -46,8 +49,9 @@ def c(text):
     text = text.replace("_", " ")
     return f"C {text}"
 
+
 # Route for /python/(<text>)
-@app.route("/python", methods=['GET'], defaults={'text': 'is cool'}, strict_slashes=False)
+@app.route("/python", defaults={'text': 'is cool'}, strict_slashes=False)
 @app.route("/python/<path:text>", methods=['GET'], strict_slashes=False)
 def python(text):
     """
@@ -57,6 +61,7 @@ def python(text):
     text = text.replace("_", " ")
     return f"Python {text}"
 
+
 # Route for /number/<n>
 @app.route("/number/<int:n>", methods=['GET'], strict_slashes=False)
 def number(n):
@@ -65,8 +70,9 @@ def number(n):
     """
     return f"{n} is a number"
 
+
 # Route for /number_template/<n>
-@app.route("/number_template/<int:n>", methods=['GET'], strict_slashes=False)
+@app.route("/number_template/<int:n>", strict_slashes=False)
 def number_template(n):
     """
     Displays an HTML page only if n is an integer.
@@ -74,14 +80,16 @@ def number_template(n):
     """
     return render_template("5-number.html", n=n)
 
+
 # Route for /number_odd_or_even/<n>
-@app.route("/number_odd_or_even/<int:n>", methods=['GET'], strict_slashes=False)
+@app.route("/number_odd_or_even/<int:n>", strict_slashes=False)
 def number_odd_or_even(n):
     """
     Displays an HTML page only if n is an integer.
     States whether n is odd or even in the body.
     """
     return render_template("6-number_odd_or_even.html", n=n)
+
 
 if __name__ == "__main__":
     try:

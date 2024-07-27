@@ -13,6 +13,7 @@ from urllib.parse import unquote
 
 app = Flask(__name__)
 
+
 # Route for the homepage
 @app.route("/", methods=['GET'], strict_slashes=False)
 def hello_hbnb():
@@ -21,6 +22,7 @@ def hello_hbnb():
     """
     return "Hello HBNB!"
 
+
 # Route for /hbnb
 @app.route("/hbnb", methods=['GET'], strict_slashes=False)
 def hbnb():
@@ -28,6 +30,7 @@ def hbnb():
     Displays 'HBNB' on the /hbnb route.
     """
     return "HBNB"
+
 
 # Route for /c/<text>
 @app.route("/c/<path:text>", methods=['GET'], strict_slashes=False)
@@ -38,6 +41,7 @@ def c(text):
     decoded_text = unquote(text)
     decoded_text = decoded_text.replace("_", " ")
     return f"C {decoded_text}"
+
 
 if __name__ == "__main__":
     try:

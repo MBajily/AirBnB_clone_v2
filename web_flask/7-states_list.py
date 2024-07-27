@@ -11,6 +11,7 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+
 @app.route("/states_list", methods=['GET'], strict_slashes=False)
 def states_list():
     """
@@ -23,12 +24,14 @@ def states_list():
     sorted_states = sorted(states.values(), key=lambda x: x.name)
     return render_template("7-states_list.html", states=sorted_states)
 
+
 @app.teardown_appcontext
 def teardown(exception):
     """
     Remove the current SQLAlchemy session.
     """
     storage.close()
+
 
 if __name__ == "__main__":
     try:

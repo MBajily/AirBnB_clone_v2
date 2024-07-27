@@ -11,14 +11,16 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+
 @app.route("/hbnb_filters", methods=['GET'], strict_slashes=False)
 def hbnb_filters():
     """
     Displays the main HBnB filters HTML page.
     """
-    states = storage.all("State")
-    amenities = storage.all("Amenity")
-    return render_template("10-hbnb_filters.html", states=states, amenities=amenities)
+    st = storage.all("State")
+    amen = storage.all("Amenity")
+    return render_template("10-hbnb_filters.html", states=st, amenities=amen)
+
 
 @app.teardown_appcontext
 def teardown(exception):
@@ -26,6 +28,7 @@ def teardown(exception):
     Remove the current SQLAlchemy session.
     """
     storage.close()
+
 
 if __name__ == "__main__":
     try:

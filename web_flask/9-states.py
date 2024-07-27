@@ -12,6 +12,7 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+
 @app.route("/states", methods=['GET'], strict_slashes=False)
 def states():
     """
@@ -23,10 +24,11 @@ def states():
     sorted_states = sorted(states, key=lambda x: x.name)
     return render_template("9-states.html", states=sorted_states)
 
+
 @app.route("/states/<id>", methods=['GET'], strict_slashes=False)
 def states_id(id):
     """
-    Displays an HTML page with info about the State with the given <id>, if it exists.
+    Displays an HTML page with info about the State with the given <id>
     """
     state = storage.get("State", id)
     if state:
@@ -34,12 +36,14 @@ def states_id(id):
     else:
         return render_template("9-states.html")
 
+
 @app.teardown_appcontext
 def teardown(exception):
     """
     Remove the current SQLAlchemy session.
     """
     storage.close()
+
 
 if __name__ == "__main__":
     try:

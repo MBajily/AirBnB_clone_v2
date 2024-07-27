@@ -15,6 +15,7 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+
 # Route for the homepage
 @app.route("/", methods=['GET'], strict_slashes=False)
 def hello_hbnb():
@@ -23,6 +24,7 @@ def hello_hbnb():
     """
     return "Hello HBNB!"
 
+
 # Route for /hbnb
 @app.route("/hbnb", methods=['GET'], strict_slashes=False)
 def hbnb():
@@ -30,6 +32,7 @@ def hbnb():
     Displays 'HBNB' on the /hbnb route.
     """
     return "HBNB"
+
 
 # Route for /c/<text>
 @app.route("/c/<path:text>", methods=['GET'], strict_slashes=False)
@@ -41,8 +44,9 @@ def c(text):
     text = text.replace("_", " ")
     return f"C {text}"
 
+
 # Route for /python/(<text>)
-@app.route("/python", methods=['GET'], defaults={'text': 'is cool'}, strict_slashes=False)
+@app.route("/python", defaults={'text': 'is cool'}, strict_slashes=False)
 @app.route("/python/<path:text>", methods=['GET'], strict_slashes=False)
 def python(text):
     """
@@ -52,6 +56,7 @@ def python(text):
     text = text.replace("_", " ")
     return f"Python {text}"
 
+
 # Route for /number/<n>
 @app.route("/number/<int:n>", methods=['GET'], strict_slashes=False)
 def number(n):
@@ -60,6 +65,7 @@ def number(n):
     """
     return f"{n} is a number"
 
+
 # Route for /number_template/<n>
 @app.route("/number_template/<int:n>", methods=['GET'], strict_slashes=False)
 def number_template(n):
@@ -67,6 +73,7 @@ def number_template(n):
     Displays an HTML page only if n is an integer.
     """
     return render_template("5-number.html", n=n)
+
 
 if __name__ == "__main__":
     try:
